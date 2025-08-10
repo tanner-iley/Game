@@ -1,4 +1,4 @@
-import { PlayerState, BannerState } from './types';
+import type { PlayerState, BannerState } from './types';
 
 const STORAGE_KEY = 'gacha.save.v1';
 
