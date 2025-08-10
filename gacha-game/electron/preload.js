@@ -1,0 +1,1 @@
+// Preload script placeholder. Expose APIs via contextBridge if needed in the future.

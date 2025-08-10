@@ -1,0 +1,80 @@
+{
+  "name": "gacha-game",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "dev:electron": "cross-env VITE_DEV_SERVER_URL=http://localhost:5173 electron .",
+    "start:electron": "electron .",
+    "package:electron": "electron-builder",
+    "dev:all": "concurrently -k \"npm:dev\" \"npm:dev:electron\"",
+    "cap:sync": "cap sync",
+    "cap:android": "cap add android",
+    "cap:ios": "cap add ios",
+    "android:open": "cap open android",
+    "ios:open": "cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.2",
+    "@capacitor/core": "^7.4.2",
+    "@capacitor/ios": "^7.4.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.2",
+    "@electron/remote": "^2.1.2",
+    "@eslint/js": "^9.32.0",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^32.2.0",
+    "electron-builder": "^25.1.8",
+    "eslint": "^9.32.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.39.0",
+    "vite": "^7.1.0",
+    "wait-on": "^8.0.2"
+  },
+  "build": {
+    "appId": "com.example.gacha",
+    "productName": "Gacha Game",
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "build"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Game"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "artifactName": "${productName}-${version}-setup.${ext}"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.games"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Gacha Game</string>
+    <string name="title_activity_main">Gacha Game</string>
+    <string name="package_name">com.example.gacha</string>
+    <string name="custom_url_scheme">com.example.gacha</string>
+</resources>
